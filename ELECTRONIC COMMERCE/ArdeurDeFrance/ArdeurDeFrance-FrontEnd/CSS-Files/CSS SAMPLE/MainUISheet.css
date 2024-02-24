@@ -1,0 +1,747 @@
+/* LIBRARIES ============================= */
+
+@font-face {
+    font-family: Lexend;
+    src: url('../Source-Files/Fonts/Lexend-Regular.ttf');
+} @font-face {
+    font-family: Poppins;
+    src: url('../Source-Files/Fonts/Poppins-Regular.ttf');
+} @font-face {
+    font-family: PoppinsLight;
+    src: url('../Source-Files/Fonts/Poppins-Light.ttf');
+} @font-face {
+    font-family: RedHatDisplay;
+    src: url('../Source-Files/Fonts/RedHatDisplay-Regular.ttf');
+}
+
+:root {
+    --ColorYellow: #fc9c04;
+    --ColorWhite: rgb(255, 255, 255);
+    --ColorGray: rgb(130,130,130);
+    --ColorDarkGray: rgb(40,40,40);
+    --ColorBlack: rgb(25,25,25);
+}
+
+/* GENERAL =============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+body {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    font-family: RedHatDisplay;
+    min-width: 360px;
+}
+
+/* BACKGROUND ============================ */
+
+#map {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    z-index: 1; 
+    min-width: 360px;
+}
+
+/* HEADER ================================ */
+
+#Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    margin: 1.25rem 1.25rem 0 0;
+    padding: 0 0.75rem;
+    border-radius: 1.2rem;
+    width: calc(100% - 2.5rem);
+    height: 5.5rem;
+    background-color: rgba(0, 0, 0, 0.65);
+} #LogoContainer {
+    display: flex;
+    align-items: center;
+    color: var(--ColorWhite);
+} #LogoImage {
+    height: 4.5rem;
+    width: auto;
+} #LogoName {
+    padding: 0 0 0 0.5rem;
+    font-size: 2.8rem;
+} 
+
+#SearchbarContainer {
+    width: 36.5%;
+    height: calc(100% - 1.5rem);
+    position: relative;
+} #SearchBar {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--ColorYellow);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+} #SearchInputContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+} #SearchInput {
+    width: 100%;
+    height: 90%;
+    border: none;
+    outline: none;
+    font-size: 1.7rem;
+    font-family: Poppins;
+    background-color: transparent;
+    padding: 0 0.75rem 0 1.5rem;
+    color: var(--ColorWhite);
+    caret-color: var(--ColorWhite);
+} #SearchInput::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+} #ClearSearchInputButton {
+    width: 2.5rem;
+    height: auto;
+    padding: 0.5rem;
+    margin: 0 0.75rem 0 0;
+    border-radius: 1.25rem;
+    opacity: 0;
+} #SearchButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 7rem;
+    border-left: 1px solid var(--ColorYellow);
+} #SearchButtonIcon {
+    width: 2.5rem;
+    height: auto;
+    margin: 0 0.5rem 0 0;
+} #SearchButton:hover, 
+  #ClearSearchInputButton:hover {
+    background: rgba(0, 0, 0, 0.3);
+} #SearchInput:hover,
+  #SearchInputContainer:hover,
+  #ClearSearchInputButton:hover,  
+  #SearchButton:hover {
+    cursor: pointer;
+}
+
+/* MAINCONTENT =========================== */
+
+#HomeButton {
+    z-index: 2;
+    position: absolute;
+    left: 1.25rem;
+    top: 8rem;
+    width: 5rem;
+    height: 5rem;
+    border: none;
+    border-radius: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} #MinMaxButton {
+    z-index: 2;
+    margin: 0 1.1rem 0 0;
+    min-width: 5rem;
+    height: 5rem;
+    border: none;
+    border-radius: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} #ZoomButtonsContainer {
+    z-index: 2;
+    position: absolute;
+    width: 5rem;
+    height: 11rem;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+} #ZoomOutButton, #ZoomInButton {
+    width: 100%;
+    height: 5rem;
+    border: none;
+    border-radius: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} .ZoomButtonIcons {
+    width: calc(100% - 2.25rem);
+    height: auto;
+} #ZoomOutButton:hover, 
+  #ZoomInButton:hover, 
+  #HomeButton:hover, 
+  #MinMaxButton:hover {
+    background-color: var(--ColorDarkGray);
+} #MinMaxButtonIcon {
+    width: 3rem;
+    height: 3rem;
+}
+
+#HiddenContainer {
+    height: calc(100% - 6.8rem);
+    width: calc(100% - 1.25rem);
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+} #LocationInfoContainer {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin: 0.65rem 1.25rem 0.65rem 0;
+    z-index: 2;
+    border-radius: 1.2rem;
+    width: 37%;
+    height: calc(100% - 2.5rem);
+    display: none;
+}
+
+#SearchedLoactionContaner {
+    padding-top: 1rem;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none;
+} #SearchedLoactionContaner::-webkit-scrollbar {
+    width: 1rem;
+} #SearchedLoactionContaner::-webkit-scrollbar-track {
+    background-color: transparent;
+} #SearchedLoactionContaner::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0, 0.4);
+    border-radius: 0.4rem;
+}
+
+.ISearchedLocationMainContainer {
+    width: calc(100% - 2rem);
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0 0 1rem 1rem;
+    padding: 1px;
+    border-radius: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    overflow: hidden;
+    position: relative;
+    /* display: none; */
+} .ISearchedImgContainer {
+    max-height: 18rem;
+    flex: 1;
+    min-width: 23rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} .ISearchedImg {
+    height: auto;
+    width: 100%;
+} .ISearchedDescriptionContainer {
+    flex: 1;
+    min-width: 23rem;
+    padding: 0.7rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+} .ISearchedLocationName {
+    color: var(--ColorWhite);
+    font-size: 1.8rem;
+} .ISearchedLocationReview {
+    display: flex;
+    align-items: center;
+} .ISearchedLocationRate {
+    font-family: Poppins;
+    color: var(--ColorWhite);
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+} .SearchedStarIcon {
+    width: 1.3rem;
+    height: auto;
+} .ISearchedLocationContainer {
+    display: flex;
+} .ILocationIcon {
+    margin-top: 0.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+} .ISearchedLocation {
+    font-size: 1.3rem;
+    color: var(--ColorWhite);
+    margin-left: 0.5rem;
+} .ISearchedLocationContaineOverlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+#ClickedLocationContainer {
+    height: calc(100% - 2rem);
+    width: calc(100% - 2rem);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    margin: 1rem 0 0 1rem;
+    padding: 1px 0 0 1px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    overflow: auto;
+    display: none;
+} #ClickedLocationContainer::-webkit-scrollbar {
+    width: 1px;
+} #ClickedLocationContainer::-webkit-scrollbar-track {
+    background-color: transparent;
+} #ClickedLocationContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0);
+} #ClickedLocationImgContainer {
+    width: 100%;
+    min-height: 21.8rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+} #ClickedImg {
+    width: 100%;
+    object-fit: cover;
+} #ClickedLocationDescriptionContainer {
+    margin: 0.7rem 1rem 1.3rem 1rem;
+    display: flex;
+    flex-direction: column;
+} #ClickedLocationName {
+    color: var(--ColorWhite);
+    font-size: 2.5rem;
+} #ClickedLocationReview {
+    display: flex;
+    align-items: center;
+} .ClickedStarIcon {
+    margin-right: 0.3rem;
+    width: 1.65rem;
+    height: auto;
+} .ClickedLocationRate {
+    font-family: Poppins;
+    color: var(--ColorWhite);
+    font-size: 1.6rem;
+    margin-left: 0.5rem;
+} .ClickedIconContainer {
+    display: flex;
+    margin: 0.3rem 0 0 0;
+} .ClickedIcon {
+    margin-top: 0.3rem;
+    width: 1.3rem;
+    height: 1.3rem;
+} #ClickedLocation, 
+  #ClickedTimeDes, 
+  #ClickedContact,
+  #ClickedPricing {
+    font-family: Poppins;
+    font-size: 1.3rem;
+    color: var(--ColorWhite);
+    margin-left: 0.5rem;
+}
+
+#ClickedLocationFeaturesContainer {
+    min-height: 12rem;
+    width: calc(100% - 2rem);
+    margin: 0 0 0 1rem;
+    padding: 2rem 0 0.5rem 0;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    border-top: 1px solid var(--ColorWhite);
+} #ClickedLocationFeaturesContainer::-webkit-scrollbar {
+    height: 10px;
+} #MainCClickedLocationFeaturesContainerntent::-webkit-scrollbar-track {
+    background-color: transparent;
+} #ClickedLocationFeaturesContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+} .ClickedLocationFeatures {
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    min-width: 15rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} .ClickedLocationFeaturesImg {
+    width: 100%;
+    object-fit: cover;
+} 
+
+#DescriptionContainer {
+    margin: 2rem 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+} #LocationDescription {
+    font-family: Poppins;
+    color: var(--ColorWhite);
+    font-size: 1.3rem;
+}
+
+#ClickedLocationReviewsContainer {
+    min-height: 23rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 1rem 0 1rem;
+    border-top: 1px solid var(--ColorWhite);
+    border-bottom: 1px solid var(--ColorWhite);
+} #ReviewLabel, 
+  #LocationRate, 
+  #ReviewCount,
+  #WriteReviewButton {
+    color: var(--ColorWhite);
+    font-family: Poppins;
+} #ReviewLabel {
+    font-size: 1.5rem;
+} #LocationRate {
+    font-size: 3rem;
+} .ReviewStarIcon {
+    margin-right: 0.4rem;
+    width: 2.5rem;
+    height: auto;
+} #ReviewCount {
+    font-size: 1.4rem;
+} #WriteReviewButton {
+    background-color: transparent;
+    border: 2px solid var(--ColorYellow);
+    border-radius: 2rem;
+    margin-top: 1rem;
+    width: 20rem;
+    height: 4rem;
+    font-size: 1.5rem;
+} #WriteReviewButton:hover {
+    background-color: var(--ColorYellow);
+    color: var(--ColorBlack);
+}
+
+#PopUpOverlay {
+    position: absolute;
+    width: 100%;
+    min-width: 360px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+} #PopUpCommentContainer {
+    height: 47rem;
+    width: 40rem;
+    background-color: var(--ColorDarkGray);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    position: relative;
+} #ContainerLabel, 
+  #UserName, 
+  #UserInput, 
+  #Date,
+  #UserInputContainer,
+  #UR, #SubmitButton {
+    color: var(--ColorWhite);
+    font-family: Poppins;
+} #PopUpHeader {
+    width: calc(100% - 2rem);
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} #ContainerLabel {
+    font-size: 2rem;
+    margin-left: 1rem;
+} #GoBackButton {
+    border: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1.2rem;
+    background-color: var(--ColorDarkGray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} #GoBackButton:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+} #UserCredential {
+    display: flex;
+    align-items: center;
+    padding: 2rem 1rem 1rem 1rem;
+    border-top: 1px solid var(--ColorGray);
+} #UserImg {
+    width: 4rem;
+    height: 4rem;
+} #UserInfoContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+} #UserName {
+    width: 100%;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+} #Date {
+    font-size: 1.2rem;
+} #UserInputContainer {
+    width: calc(100% - 2rem);
+    height: 20rem;
+    margin: 0 auto;
+    border-radius: 0.8rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 1.8rem;
+    overflow-y: auto;
+} #UserInputContainer::-webkit-scrollbar {
+    width: 1px;
+} #UserInputContainer::-webkit-scrollbar-track {
+    background-color: transparent;
+} #UserInputContainer::-webkit-scrollbar-thumb {
+    background-color: transparent;
+} #UserInputContainer:focus {
+    outline-color: var(--MyLightGray);
+}
+
+#Container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--ColorGray);
+    height: 5rem;
+    margin: 1rem 1rem 0 1rem;
+    border-radius: 0.8rem;
+} #ConT {
+    display: flex;
+    align-items: center;
+} #Contain {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0.3rem 1rem;
+} .SI{
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+} #UR {
+    font-size: 2rem;
+    margin-left: 0.5rem;
+} #FileInputIcon {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 0.5rem 0 0;
+    cursor: pointer;
+} #InputFile {
+   display: none; 
+} #SubmitButton {
+    border-radius: 0.8rem;
+    background-color: var(--ColorGray);
+    height: 4rem;
+    width: calc(100% - 2rem);
+    margin: 1rem 1rem 0 1rem;
+    border: none;
+    font-size: 1.8rem;
+}
+
+#ReviewsContainer {
+    margin: 0 auto 0 auto;
+    width: calc(100% - 2rem);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    min-height: 39rem;
+} #ReviewsContainer::-webkit-scrollbar {
+    width: 1rem;
+} #ReviewsContainer::-webkit-scrollbar-track {
+    background-color: transparent;
+} #ReviewsContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(175, 175, 175);
+    border-radius: 0.4rem;
+} #ReviewsLabel {
+    font-size: 2rem;
+    margin: 1rem 0;
+    font-family: Poppins;
+    color: var(--ColorWhite);
+} .UAlias, 
+  .UReviewRate,
+  .RDate, 
+  .UComment {
+    font-family: Poppins;
+    color: var(--ColorWhite);
+} .CContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* min-height: 14.5rem; */
+} .UInfo {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--ColorWhite);
+    padding: 0 0 1rem 0;
+} .UAvatar {
+    width: 4.5rem;
+    height: 4.5rem;
+} .UInfoCon {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 1rem;
+} .UAlias {
+    font-size: 1.6rem;
+} .RDate {
+    font-size: 1.2rem;
+} .UCommentContainer {
+    display: flex;
+    flex-direction: column;
+} .UComment {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+} .UImgReview {
+    width: 100%;
+    max-height: 15rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} .IReview {
+    width: 100%;
+    object-fit: cover;
+} .URate {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--ColorWhite);
+    padding: 0.5rem 0 0 0;
+} .UserRateStarIcon {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: 0.3rem;
+} .UReviewRate {
+    font-size: 1.8rem;
+    margin-left: 0.8rem;
+}
+
+#SearchResultContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0.25rem;
+    padding-top: 0.25rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    max-height: 23rem;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+} #SearchResultContainer::-webkit-scrollbar {
+    width: 0.8rem;
+} #SearchResultContainer::-webkit-scrollbar-track {
+    background-color: transparent;
+} #SearchResultContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(170, 170, 170);
+    border-radius: 0.3rem;
+} .SearchResult {
+    height: 5rem;
+    min-height: 5rem;
+    width: calc(100% - 0.6rem);
+    margin: 0 auto 0.3rem auto;
+    padding: 0 1.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+} .ResultLink {
+    color: white;
+    font-size: 1.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* MEDIA QUERIES ========================= */
+
+@media (max-width: 1000px) {
+
+    #SearchbarContainer {
+        width: 43%;
+    } #LocationInfoContainer {
+        width: 43.5%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    * {
+        font-size: 9px;
+    }
+
+    #LogoName {
+        font-size: 2.5rem;
+    }
+
+    #SearchbarContainer {
+        width: 54%;
+    } #LocationInfoContainer {
+        width: 54.5%;
+    }
+
+}
+
+@media (max-width: 530px) {
+
+    #LogoName {
+        display: none;
+    } #LogoImage {
+        padding-right: 0.6rem;
+    } #SearchbarContainer {
+        width: 100%;
+    } 
+    
+    #LocationInfoContainer {
+        width: calc(100% - 6.8rem);
+    }
+
+    #PopUpCommentContainer {
+        width: 35rem;
+    }
+
+}
+
+@media (max-width: 368px) {
+
+    * {
+        font-size: 8px;
+    }
+
+    #ClickedImg {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #PopUpCommentContainer {
+        width: 35rem;
+    }
+
+}

@@ -1,0 +1,374 @@
+@font-face {
+    font-family: Poppins;
+    src: url('../Source-Files/Fonts/Poppins-Regular.ttf');
+}
+
+:root {
+    --MyLightGray: rgb(185, 185, 185);
+    --MyYellow: rgb(255, 155, 25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+body {
+    height: 100vh;
+    height: 100svh;
+    width: 100%;
+    min-width: 870px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+#map {
+    position: absolute;
+    width: 100%;
+    min-width: 870px;
+    height: 100vh;
+    height: 100svh;
+    z-index: 1; 
+} #ContainerMain {
+    width: 100%;
+    min-width: 870px;
+    height: 100vh;
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0, 0 , 0, 0.5);
+} #InfoContainer {
+    width: 60rem;
+    height: 48rem;
+    background-color: rgba(0, 0 , 0, 0.5);
+    margin-left: 1rem;
+    border-radius: 0.75rem;
+} 
+
+#ConfirmDeleteOverlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0 , 0, 0.5);
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    display: none;
+    z-index: 3;
+} #ConfirmDeleteContainer {
+    width: 18rem;
+    height: 13rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0.75rem;
+} #DeletLabel, #DeleteWarningLabel {
+    font-family: Poppins;
+    color: black;
+} #DeletLabel {
+    font-size: 2rem;
+} #DeleteWarningLabel {
+    width: calc(100% - 2rem);
+    font-size: 1rem;
+    text-align: center;
+} #ConfirmDeleteButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 2rem);
+    margin-top: 2.15rem;
+} .ConfirmDeleteButton {
+    width: calc(50% - 0.5rem);
+    height: 3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    border: 1px solid var(--MyYellow);
+    background-color: white;
+} #cancelButton {
+    color: rgb(0, 4, 255);
+} #ConfirmButton {
+    color: rgb(255, 0, 0);
+} .ConfirmDeleteButton:hover {
+    background-color: var(--MyYellow);
+    cursor: pointer;
+}
+
+#ButtonsContainer {
+    width: 5rem;
+    height: 48rem;
+    background-color: rgba(0, 0 , 0, 0.5);
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} .MainButtons {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    background-color: var(--MyYellow);
+    border-radius: 0.5rem;
+    font-size: 2.5rem;
+    margin-top: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} .MainButtons:hover {
+    background-color: yellow;
+    cursor: pointer;
+} #HomeIcon {
+    width: 2rem;
+    height: auto;
+}
+
+#CreateLocationContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    display: none;
+} #LocationInfo1 {
+    width: 50%;
+    height: inherit;
+    padding: 0 0.5rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} #LocationInfo2 {
+    width: 50%;
+    height: inherit;
+    padding: 0 1rem 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} .InputContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0 0 0;
+} .InputLabel {
+    font-size: 1rem;
+    color: white;
+} .Input, #Description {
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.3rem;
+    color: white;
+    padding: 0 0.75rem;
+    background-color: rgba(0, 0 , 0, 0.5);
+} .Input:focus, #Description:focus {
+    outline-color: var(--MyLightGray);
+} #LocationImg, #LocationFeatures {
+    font-size: 1.2rem;
+    color: transparent;
+    margin-bottom: 0.5rem;
+} .IC1 {
+    max-height: 7.5rem;
+    min-height: 7.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0 , 0, 0.5);
+    padding-left: 0.75rem;
+} .ICon1 {
+    position: relative;
+    height: 6rem;
+    max-height: 6rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+} .Xbutton {
+    position: absolute;
+    width: 2rem;
+    height: auto;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    top: 0.25rem;
+    right: 0.25rem;
+    background-color: rgba(0, 0 , 0, 0.5);
+} .Xbutton:hover {
+    background: var(--MyYellow);
+} .I1 {
+    height: 100%;
+    object-fit: cover;
+} .IC2 {
+    max-height: 9rem;
+    min-height: 9rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0 , 0, 0.5);
+    padding-left: 0.75rem ;
+} .IC2::-webkit-scrollbar {
+    height: 1rem;
+} .IC2::-webkit-scrollbar-track {
+    background-color: transparent;
+} .IC2::-webkit-scrollbar-thumb {
+    background-color: var(--MyLightGray);
+    border-radius: 0.5rem;
+} .ICon2 {
+    position: relative;
+    height: 6rem;
+    max-height: 6rem;
+    min-width: 10rem;
+    max-width: 10rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+} .I2 {
+    width: 100%;
+    object-fit: cover;
+} #Description {
+    height: 11rem;
+    padding: 0.25rem 0.75rem;
+    overflow-y: auto;
+} #Description::-webkit-scrollbar {
+    width: 1px;
+} #Description::-webkit-scrollbar-track {
+    background-color: transparent;
+} #Description::-webkit-scrollbar-thumb {
+    background-color: transparent;
+} #AddButton, #UpdateButton {
+    height: 4rem;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--MyYellow);
+} #UpdateButton {
+    display: none;
+} #AddButton:hover, #UpdateButton:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+#LocationInfoMainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-top: 1rem;
+    /* display: none; */
+} #LocationInfoMainContainer::-webkit-scrollbar {
+    width: 1rem;
+} #LocationInfoMainContainer::-webkit-scrollbar-track {
+    background-color: transparent;
+} #LocationInfoMainContainer::-webkit-scrollbar-thumb {
+    background-color: var(--MyLightGray);
+    border-radius: 0.5rem;
+} .LocationInfoContainer {
+    width: calc(100% - 2rem);
+    margin: 0 auto 1rem auto;
+    background-color: rgba(0, 0 , 0, 0.3);
+    border-radius: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+} .ConTain {
+    display: flex;
+    align-items: center;
+    flex: 1;
+} .ImgContainer {
+    height: calc(100% - 1rem);
+    max-height: 14rem;
+    min-width: 15rem;
+    max-width: 15rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} .LocImg {
+    width: 100%;
+    object-fit: cover;
+} .LocationInfo {
+    height: calc(100% - 1rem);
+    max-height: 14rem;
+    flex: 1;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem 0 0.5rem;
+    padding: 0.75rem;
+    overflow-y: auto;
+} .LocationInfo::-webkit-scrollbar {
+    width: 1rem;
+} .LocationInfo::-webkit-scrollbar-track {
+    background-color: transparent;
+} .LocationInfo::-webkit-scrollbar-thumb {
+    background-color: var(--MyLightGray);
+    border-radius: 0.5rem;
+} .InfoHolder {
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+} .FeatureImgContainer {
+    min-height: 4rem;
+    width: 45%;
+    padding: 0.5rem 0;
+    padding-left: 0.5rem;
+    margin-left: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
+} .FeatureImgContainer::-webkit-scrollbar {
+    height: 1rem;
+} .FeatureImgContainer::-webkit-scrollbar-track {
+    background-color: transparent;
+} .FeatureImgContainer::-webkit-scrollbar-thumb {
+    background-color: var(--MyLightGray);
+    border-radius: 0.5rem;
+} .ImgCon {
+    height: calc(100% - 1rem);
+    max-height: 4rem;
+    width: 5rem;
+    min-width: 5rem;
+    margin-right: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} .Img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.ButtonContainer {
+    display: flex;
+    align-items: center;
+} .Buttons {
+    height: 3rem;
+    width: 8.35rem;
+    border-radius: 0.5rem;
+    background-color: var(--MyYellow);
+    border: none;
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+} .Buttons:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
