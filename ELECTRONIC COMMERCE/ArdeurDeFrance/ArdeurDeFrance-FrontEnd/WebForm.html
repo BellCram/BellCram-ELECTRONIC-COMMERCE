@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta http-equiv="" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ArdeurDeFrance</title>
+
+        <link rel="icon" type="image/png" href="">
+        <link rel="stylesheet" type="text/css" href="CSS-Files/GeneralSheet.css">
+        <link rel="stylesheet" type="text/css" href="CSS-Files/WebFormSheet.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <script defer type="text/javascript" src=""></script>
+    </head>
+    <body>
+        <header id="WebFormHeader">
+            <div id="WebFormHeaderTopPart">
+                <div style="display: flex; align-items: center;">
+                    <img id="WebFormHeaderLogo" src="Source-Files/Logo3.png" alt="">
+                    <p>ARDEUR DE FRANCE</p>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <div id="HeaderSearchBar">
+                        <i id="WebFormHeaderSearchButton" class="fa-solid fa-magnifying-glass"></i>
+                        <input id="WebFormHeaderSearchInputButton" type="text" placeholder="Seach">
+                        <i id="WebFormHeaderDeleteTextButton" class="fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <i id="WebFormHeaderMenuButton" class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <div id="WebHeaderButtons">
+                <button id="BrandsButton">BRANDS</button>
+                <button id="WomansPerfumeButton">WOMAN'S PERFUME</button>
+                <button id="MensCologneButton">MEN'S COLOGNE</button>
+                <button id="BestSellerButton">BEST SELLER</button>
+                <button id="GiftSetsButton">GIFTSETS</button>
+            </div>
+        </header>
+        <main id="WebFormMainUI">
+            <div id="WebFormMainUIContainer">
+                <div id="WebFormMainUIContainerLeft">
+                    <p id="WebFormMainUIContainerLeftLabel">SORT BY</p>
+                    <div id="FilterCategoryContainer">
+                        <div class="FilterCategory">
+                            <p class="CategoryLabel">Gender</p>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox"><p>Men</p></div>
+                                <p style="margin-right: 0.5rem;">269</p>
+                            </div>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox"><p>Women</p></div>
+                                <p style="margin-right: 0.5rem;">69</p>
+                            </div>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox"><p>Unisex</p></div>
+                                <p style="margin-right: 0.5rem;">1,255</p>
+                            </div>
+                        </div>
+                        <div class="FilterCategory">
+                            <p class="CategoryLabel">Stock</p>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox"><p>In Stock Only</p></div>
+                                <p style="margin-right: 0.5rem;">2,269</p>
+                            </div>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox"><p>Best Seller</p></div>
+                                <p style="margin-right: 0.5rem;">69</p>
+                            </div>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox"><p>Gifsets</p></div>
+                                <p style="margin-right: 0.5rem;">126</p>
+                            </div>
+                        </div>
+                        <div class="FilterCategory">
+                            <p class="CategoryLabel">Brand</p>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox">
+                                <p>Versace</p></div>
+                            </div>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox">
+                                <p>Elizabeth Arden</p></div>
+                            </div>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox">
+                                <p>Lattafa</p></div>
+                            </div>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox">
+                                <p>Jimmy Choo</p></div>
+                            </div>
+                        </div>
+                        <div class="FilterCategory">
+                            <p class="CategoryLabel">Price</p>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox"><p>$100 Below</p></div>
+                            </div>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox"><p>$101 - $500</p></div>
+                            </div>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox"><p>$501 - $1000</p></div>
+                            </div>
+                            <div class="FilterCheckboxContainer">
+                                <div style="display: flex; align-items: center;"><input type="checkbox"><p>$1000 Above</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="WebFormMainUIContainerRight">
+                    <div id="SearchResultIndicator">
+                        <div style="display: flex; align-items: center;">
+                            <p id="ResultCount">690 products</p>
+                            <div id="FilterContainer">
+                                <div class="FilterLabel">
+                                   <p>Best Seller</p> 
+                                   <i class="fa-solid fa-xmark"></i>
+                                </div>
+                                <div class="FilterLabel">
+                                    <p>Woman</p> 
+                                    <i class="fa-solid fa-xmark"></i>
+                                 </div>
+                            </div>
+                        </div>
+                        <button id="ResetFilterButton">Reset</button>
+                    </div>
+                    <div id="ResultsProductContainer">
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SearchedProduct">
+                            <div class="SearchedProductContainerOverlay"></div>
+                            <div class="SearchedProductContainer">
+                                <div class="SearchedImgProductContainer"><img src="Source-Files/ProductPicture.webp" alt=""></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="SearchedProductName">Spring Blossom</p>
+                                    <p class="SearchedProductPrice">$299.45</p>
+                                    <div style="display: flex;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+    <script defer type="text/javascript">
+        const WebFormHeaderLogo = document.querySelector('#WebFormHeaderLogo');
+        WebFormHeaderLogo.addEventListener('click', function() {
+            window.location.href = `MainForm.html`;
+        });
+    </script>
+</html>
